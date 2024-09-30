@@ -35,6 +35,10 @@ public class StaffController {
                 .collect(toList());
     }
 
-
+    public void updateStaffName(String staffId, String newName){
+        staffs.stream()
+            .filter(s -> s.getId().equals(staffId))
+            .forEach(s -> s.setName(newName));
+    }
 
 }
