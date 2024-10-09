@@ -37,7 +37,7 @@ public class InvoiceService implements IGeneral<Invoice> {
             }
             totalAmountDue += totalAmountDiscount;
         }
-
+        return totalAmountDue;
 
     }
 
