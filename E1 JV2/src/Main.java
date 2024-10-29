@@ -4,21 +4,30 @@ import java.util.HashSet;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        HashSet<Integer> numbers = new HashSet<Integer>();
+
+        HashSet<Integer> numbers = new HashSet<>();
         numbers.add(123);
-        numbers.add(124);
-        numbers.add(125);
-        numbers.add(126);
-        HashSet<Integer> divisibleBy3 = new HashSet<Integer>();
-        for(Integer n : numbers){
-            if(check(n)){
-                divisibleBy3.add(n);
+        numbers.add(456);
+        numbers.add(789);
+        numbers.add(12312386);
+
+        HashSet<Integer> numbers2 = new HashSet<>();
+        for(Integer i : numbers){
+            if(divisibleBy3(i)){
+                numbers2.add(i);
             }
         }
-        System.out.println("Cac so chia het cho 3 la: " + divisibleBy3);
+        System.out.println("The numbers divisible by 3 are: " + numbers2);
+
     }
 
-    public static boolean check(int x){
-        return x % 3 == 0;
+    public static boolean divisibleBy3(int x){
+        if(x < 0){
+            x = -x;
+        }
+        while(x > 0){
+            x -= 3;
+        }
+        return x == 0;
     }
 }
